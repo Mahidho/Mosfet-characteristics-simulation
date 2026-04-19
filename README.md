@@ -1,59 +1,64 @@
 # MOSFET Characteristics Simulation
 
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![Model](https://img.shields.io/badge/Model-Long--Channel%20MOSFET-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
+## About
+This project models the electrical characteristics of an NMOS MOSFET
+using Python. It was completed as part of my personal semiconductor
+physics portfolio during my BSc in Physics.
 
-## Project Overview
-Mathematical modelling and visualisation of NMOS MOSFET I-V characteristics
-using the long-channel Shockley MOSFET model in Python. Simulates transfer
-curves, output curves, and analyses the effect of channel length scaling
-on device performance.
+The code simulates three key MOSFET behaviours using simple Python
+loops and the basic Shockley MOSFET equations.
 
-## Device Parameters
+---
+
+## Plots Generated
+
+### 1. Transfer Curve (Id vs Vgs)
+Shows how drain current changes as gate voltage increases.
+The MOSFET stays off below 0.7V and turns on above it.
+
+### 2. Output Curves (Id vs Vds)
+Shows drain current vs drain voltage for five different gate voltages.
+Each curve shows the linear region and saturation region clearly.
+
+### 3. Channel Length Scaling
+Shows how shrinking the channel length increases drive current.
+This is the physics behind Moore's Law.
+
+---
+
+## Parameters Used
+
 | Parameter | Value |
 |---|---|
-| Type | NMOS (N-channel MOSFET) |
-| Electron Mobility (μn) | 450 cm²/Vs |
-| Oxide Capacitance (Cox) | 3.45 mF/m² |
-| Channel Width (W) | 10 µm |
-| Channel Length (L) | 1 µm (baseline) |
+| Transconductance (k) | 0.0016 A/V^2 |
 | Threshold Voltage (Vth) | 0.7 V |
+| Channel lengths tested | 0.25 um, 0.5 um, 1 um, 2 um |
+| Gate voltages tested | 1.0V, 1.5V, 2.0V, 2.5V, 3.0V |
 
-## Results
-
-### Transfer Curve (Id vs Vgs)
-![Transfer Curve](MOSFET_Transfer_Curve.png)
-
-### Output Curves (Id vs Vds)
-![Output Curves](MOSFET_Output_Curves.png)
-
-### Channel Length Scaling
-![Channel Scaling](MOSFET_Channel_Length_Scaling.png)
-
-## Key Findings
-- MOSFET switches ON at threshold voltage Vth = 0.7V
-- Drain current saturates beyond Vds = Vgs - Vth (saturation boundary)
-- Higher gate voltage = higher saturation current
-- Smaller channel length = significantly higher drive current
-- Results directly demonstrate the principle behind Moore's Law
+---
 
 ## Tools Used
-- **Python** — modelling and visualisation
-- **NumPy** — numerical computation
-- **Matplotlib** — plotting
+- Python 3
+- NumPy
+- Matplotlib
+- Google Colab
+
+---
 
 ## Files
+
 | File | Description |
 |---|---|
-| `MOSFET_Characteristics.ipynb` | Main Python notebook |
-| `MOSFET_Transfer_Curve.png` | Id vs Vgs transfer curve |
-| `MOSFET_Output_Curves.png` | Id vs Vds family of curves |
-| `MOSFET_Channel_Length_Scaling.png` | Channel length scaling comparison |
+| `MOSFET_Characteristics.ipynb` | Main Python notebook with all code |
+| `transfer_curve.png` | Transfer curve plot |
+| `output_curves.png` | Output curves plot |
+| `channel_scaling.png` | Channel length scaling plot |
+
+---
 
 ## Author
 **Mahidho** — BSc Physics
-Exploring semiconductor device physics and VLSI design
+GitHub: github.com/Mahidho/Mosfet-characteristics-simulation
 
 ## License
 MIT License
